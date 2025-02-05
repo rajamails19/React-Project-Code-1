@@ -15,9 +15,9 @@ interface IDetailDefs {
 // Sample column definitions representing a mock dataset
 const columnDefs: NexusGridColumn[] = [
   { field: "id", headerName: "ID" },
-  { field: "name", headerName: "Name" },
+  { field: "name", headerName: "Raja" },
   { field: "email", headerName: "Email" },
-  { field: "role", headerName: "Role" },
+  { field: "role", headerName: "Developer" },
 ];
 
 // List of fields to exclude from the final processed output
