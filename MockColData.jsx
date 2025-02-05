@@ -28,6 +28,20 @@ const addEditFields = ["name", "role"];
 
 const App: React.FC = () => {
   // Process and filter columns based on exclusions and editable fields
+  /*
+const detailDefs: IDetailDefs[] = columnDefs
+    .filter(
+      (item) =>
+        item.field && // Ensure the field is defined
+        !fieldsToExclude.includes(item.field) && // Exclude fields in `fieldsToExclude`
+        (!addEditFields || addEditFields.includes(item.field)) && // Include only editable fields
+        item.field !== "" // Ensure field is not an empty string
+    )
+    .map((item) => ({
+      label: item.headerName, // Assign header name to label
+      id: item.field, // Assign field name to id
+    }));
+  */
   const detailDefs: IDetailDefs[] = columnDefs
     .filter(
       (item) =>
