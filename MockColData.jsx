@@ -1,18 +1,18 @@
-import React from "react";
+import React from "react"; // Import React for building the component
 
-// Define column interface
+// Define the structure of each column in the grid
 interface NexusGridColumn {
-  field: string;
-  headerName: string;
+  field: string; // Unique identifier for the column
+  headerName: string; // Display name for the column
 }
 
-// Define processed data structure
+// Define the structure of processed data used in UI
 interface IDetailDefs {
-  label: string;
-  id: string;
+  label: string; // The header name of the column
+  id: string; // The field name (used as an identifier)
 }
 
-// Sample Column Definitions (Mock Data)
+// Sample column definitions representing a mock dataset
 const columnDefs: NexusGridColumn[] = [
   { field: "id", headerName: "ID" },
   { field: "name", headerName: "Name" },
@@ -20,30 +20,32 @@ const columnDefs: NexusGridColumn[] = [
   { field: "role", headerName: "Role" },
 ];
 
-// Fields to Exclude
+// List of fields to exclude from the final processed output
 const fieldsToExclude = ["email"];
 
-// Editable Fields
+// List of fields that should be considered editable
 const addEditFields = ["name", "role"];
 
 const App: React.FC = () => {
-  // Process Columns Based on Filters
+  // Process and filter columns based on exclusions and editable fields
   const detailDefs: IDetailDefs[] = columnDefs
     .filter(
       (item) =>
-        item.field &&
-        !fieldsToExclude.includes(item.field) &&
-        (!addEditFields || addEditFields.includes(item.field)) &&
-        item.field !== ""
+        item.field && // Ensure the field is defined
+        !fieldsToExclude.includes(item.field) && // Exclude fields in `fieldsToExclude`
+        (!addEditFields || addEditFields.includes(item.field)) && // Include only editable fields
+        item.field !== "" // Ensure field is not an empty string
     )
     .map((item) => ({
-      label: item.headerName,
-      id: item.field,
+      label: item.headerName, // Assign header name to label
+      id: item.field, // Assign field name to id
     }));
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
       <h2>Filtered Grid Data</h2>
+
+      {/* Table to display processed column data */}
       <table border="1" cellPadding="5">
         <thead>
           <tr>
@@ -54,8 +56,8 @@ const App: React.FC = () => {
         <tbody>
           {detailDefs.map((col) => (
             <tr key={col.id}>
-              <td>{col.id}</td>
-              <td>{col.label}</td>
+              <td>{col.id}</td> {/* Display column field name */}
+              <td>{col.label}</td> {/* Display column header label */}
             </tr>
           ))}
         </tbody>
@@ -64,4 +66,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default App; // Export the component for use in a React application
