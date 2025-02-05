@@ -1,5 +1,5 @@
 import React from "react"; // Import React for building the component
-123
+12
 
 // Define the structure of each column in the grid
 interface NexusGridColumn {
