@@ -1,6 +1,5 @@
 import React from "react"; // Import React for building the component
 
-
 // Define the structure of each column in the grid
 interface NexusGridColumn {
   field: string; // Unique identifier for the column
